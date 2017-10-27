@@ -1,0 +1,239 @@
+<header></header>
+<div class="col-md-12 col-lg-12 col-sm-12">
+    <section class="chat-wrap">
+        <div class="chat-inner clearfix">
+       <aside class="col-md-4 col-sm-4 col-xs-12 col-lg-4 chat-userlist-wrap">
+          <div class="chat-userlist">
+             <div class="add-chatuser row">
+                <a data-toggle="modal" data-target="#myModal"> + User Chat </a>
+            </div>
+            <!-- .add-chatuser -->
+            <div class="seach-chatuser">
+                <div class="input-group col-md-12">
+                    <input type="text" class="  search-query form-control" placeholder="Search" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-danger" type="button">
+                            <span class=" glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <!-- .seach-chatuser -->
+            <div class="userlist">
+                <ul>
+                    <li ng-repeat="privateChatUser in privateGroupList"> 
+
+                        <a href="javascript:;"  ng-click="privategroup(privateChatUser)"> <i class="fa fa-user-o" aria-hidden="true"></i> <span ng-hide=""><span ng-hide="privateChatUser.createdby == userdetails.id">{{privateChatUser.friend_name}}</span>
+                        <span ng-hide="privateChatUser.createdby != userdetails.id">{{privateChatUser.group_name}}</span>
+                        </a> 
+
+                      
+
+                        <span> <i class="fa fa-times" aria-hidden="true"></i> </span>
+                        <!-- <i class="icon-remove" onclick="window.location.href='index.php?route=chat/privatechat/disabled_user&amp;id=10';"></i> -->
+                    </li>
+                  
+                </ul>
+            </div>
+
+        </div>    
+    </aside>
+    <!-- .chat-userlist-wrap -->
+
+    <aside class="col-md-8 col-sm-8 col-xs-12 col-lg-8 chat-block">
+      <div class="chat-box">
+         <div class="chat-header row">
+            <h3 class="col-lg-8 col-md-8 col-sm-8 col-xs-12"> {{groupsName }} <span style="font-size: 15px; padding: 10px;"> The time square new York </span><a class="chatmap-icon" data-toggle="modal" data-target="#locationModal"> <i class="fa fa-map-marker" aria-hidden="true"></i> </a>  </h3>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-right chatheader-right">
+              <span class="chatstetus w3-text-green" ng-show="friendInfo.online==1"> <b>Online</b> </span> 
+              <span class="chatstetus w3-text-red" ng-show="friendInfo.online==0"> <b>Offline</b> </span> 
+            </div>
+        </div>
+        <!-- .add-chatuser -->
+        <div class="usermessage-box">
+            <div  class="{{message.sender_id == userdetails.id ? 'usermessage-outbox' : 'usermessage-inbox'}} clearfix msg-gap"  ng-repeat="message in messagess">
+   
+              <div class="{{message.sender_id == userdetails.id ? 'usermessage-out' : 'usermessage-in'}} ">
+                  <div class="chat-message-box">  
+                  <div ng-show="message.message_type=='text'">
+                  {{message.text}}
+                  </div>
+                  <div ng-show="message.message_type=='image'">
+                  <img src="{{message.text}}" class="img img-responsive" style="width:200px; height: 200px;" />
+                  </div>
+                  </div>
+                  <div class="delete-message"> <a href="javascript();"> <i class="fa fa-trash" aria-hidden="true"></i> </a> <span>{{message.sendtimestamp | date:'yyyy-MM-dd HH:mm:ss'}} </span> </div>
+             
+            </div>
+            </div>
+
+         </div>  
+
+        <!-- .usermessage-box -->
+        <div class="chat-message">
+            <div class="input-group col-md-12">
+                <input type="text" class="chat-message-query form-control" placeholder="Message" ng-model="residentchat.message"/>
+                <span class="input-group-btn file-transfer">
+                    <button class="btn btn-danger" data-toggle="modal" data-target="#fileuploadModal"  type="button"  >
+                        <span class="fa fa-paperclip"></span>
+                    </button>
+                </span>
+                <span class="input-group-btn file-transfer">
+                    <button class="btn btn-danger" type="button">
+                        <span class="fa fa-microphone"></span>
+                    </button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-danger" type="button" ng-click="send()">
+                        <span class="fa fa-paper-plane-o"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <!-- .seach-chatuser -->  
+
+
+</aside>
+</div>
+</section>
+</div>
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog" style="margin-top: 10%;">
+ <form name="privatAddForm">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add User</h4>
+      </div>
+      <div class="modal-body">
+
+                      <div class="row">
+                          <div class="col-md-3"></div>
+                          <div class="col-md-6">
+                              <div class="alert alert-danger" ng-show="Error == false">
+                                  <strong>Danger!</strong> {{ErrorMessage}}
+                              </div>
+                              <div class="alert alert-success" ng-show="Success == false">
+                                  <strong>Success!</strong> {{successMessage}}
+                              </div>
+                          </div>
+                          <div class="col-md-3"></div>
+                      </div>
+                <div class="form-group clearfix">
+                
+                 <div class=" col-md-6  col-md-offset-3">
+                  <select class="form-control" ng-model="privateUser"  required="required"> 
+                 
+                 <option value="{{user}}" ng-hide="{{user._id==userdetails.id}}"  ng-repeat="user in users">{{user.first_name}} {{user.last_name}}</option>
+                 </select>
+                 </div>
+             </div>
+           
+
+      </div>
+      <div class="modal-footer w3-center">
+     <button  ng-disabled="privatAddForm.$invalid" ng-click="addPrivateChat(privateUser)"  class="w3-bar-item w3-button w3-green" style="width:49.3%">Submit</button>
+      
+      </div>
+    </div>
+
+  </div>
+  </form>
+</div>
+
+
+
+<div id="locationModal" class="modal fade" role="dialog" style="margin-top: 10%;">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Location Modal</h4>
+      </div>
+      <div class="modal-body">
+    <div id="map"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="fileuploadModal" class="modal fade" role="dialog" style="margin-top: 10%;">
+<form name="privatAddForm">
+ <div class="modal-dialog">
+
+ <!-- Modal content-->
+   <div class="modal-content">
+     <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal">&times;</button>
+       <h4 class="modal-title">Upload</h4>
+     </div>
+     <div class="modal-body">
+
+                     <div class="row">
+                         <div class="col-md-3"></div>
+                         <div class="col-md-6">
+                             <div class="alert alert-danger" ng-show="Errordata == false">
+                                 <strong>Danger!</strong> {{ErrorMessage}}
+                             </div>
+                             <div class="alert alert-success" ng-show="Successdata == false">
+                                 <strong>Success!</strong> {{successMessage}}
+                             </div>
+                         </div>
+                         <div class="col-md-3"></div>
+                     </div>
+               <div class="form-group clearfix">
+               
+                 <form name="upload_form">
+               Single Image with validations
+           <input 
+               type="file" 
+               ngf-select 
+               ng-model="file" 
+               name="file" 
+               ngf-pattern="'image/*'"
+               accept="image/*" 
+               ngf-max-size="20MB" 
+               />
+           Image thumbnail: <img style="width:100px;" ng-show="!!file" ngf-thumbnail="file || '/thumb.jpg'"/>
+           <i ng-show="upload_form.file.$error.required">*required</i><br>
+           <i ng-show="upload_form.file.$error.maxSize">File too large 
+           {{up.file.size / 1000000|number:1}}MB: max 20M</i>
+          <!--  Multiple files
+           <div class="button" ngf-select ng-model="up.files" ngf-multiple="true">Select</div>
+           Drop files: <div ngf-drop ng-model="up.files" class="drop-box">Drop</div> -->
+           <button type="submit" ng-click="submit(file)">submit</button>
+           <p>{{progress}}</p>
+       </form>
+         
+        </div>
+      </div>
+     <div class="modal-footer w3-center">
+    </div>
+   </div>
+
+ </div>
+ </form>
+</div>
+
+
+<!-- <script>
+      function initMap() {
+        // Create a map object and specify the DOM element for display.
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+    async defer></script> -->

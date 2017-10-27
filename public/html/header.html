@@ -1,0 +1,80 @@
+
+<!-- Navigation -->
+<nav class="navbar navbar-fixed-top white-bg top-header" role="navigation" ng-controller="headerController">
+    <!-- Top Menu Items -->
+    <div class="top-nav clearfix">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="pull-left header-logowrap">
+            <div class="header-toggle">
+                <!-- <div data-original-title="Toggle Navigation" data-placement="right" class="icon-reorder tooltips"><i class="fa fa-bars"></i></div> -->
+                <div class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><i class="fa fa-bars"></i></div>                
+            </div>
+            <!--logo start-->
+            <div class="header-logo"> <span style="color:#FF6C60;">FMR</span></div>
+        </div>
+        <div class="pull-right top-admin-menu">
+        <ul class="nav">
+            <li class="dropdown">
+                <button class="btn" data-toggle="dropdown" class="dropdown-toggle">
+                    <span class="username" >ADMIN</span>
+                    <b class="caret"></b>
+                </button>
+                <ul class="dropdown-menu extended logout">
+                    <div class="log-arrow-up"></div>
+                    <li><a href="/#/editUser/{{userdetails.id}}"><i class=" icon-suitcase"></i>Profile</a></li>
+                    <li><a href="/#/editUser/{{userdetails.id}}"><i class="icon-pencil"></i> Edit Profile</a>
+                    </li>
+                    <li><a href="javascript:void(0);" ng-click="logout();"><i class="icon-key"></i> Log Out</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    </div>
+    <!-- /.navbar-collapse -->
+</nav>
+
+<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+<div id="myNavbar" class="collapse navbar-collapse navbar-ex1-collapse clearfix" style="color: #fff">
+    <ul class="nav navbar-nav side-nav">
+        <li ng-class="{active: $route.current.activetab == 'dashboard'}">
+            <a href="javascript:void(0)" style="color:#fff;"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+        </li>
+        <li>
+            <a href="javascript:void(0);" data-toggle="collapse" data-target="#demo" style="color:#fff;"><i class="fa fa-user"></i> User<i class="fa fa-plus pull-right"></i></a>
+            <ul id ="demo" class="collapse">
+                <li>
+                    <a href="/#/list">user</a>
+                </li>
+                <li>
+                    <a href="/#/addUser">User Groups</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:void(0);" data-toggle="collapse" data-target="#demo1" style="color:#fff;"><i class="fa  fa-comments"></i> Chat <i class="fa fa-plus pull-right" ></i></a>
+            <ul id ="demo1" class="collapse">
+                <li>
+                    <a href="/#/groupchat">Group chat</a>
+                </li>
+                <li>
+                    <a href="/#/privatechat">Private chat</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:void(0);" data-toggle="collapse" data-target="#demo2" style="color:#fff;"><i class="fa fa-phone"></i> Contacts <i class="fa fa-plus pull-right"></i></a>
+            <ul id ="demo2" class="collapse">
+                <li>
+                    <a href="/#/contactlist">Contact list</a>
+                </li>
+                <li>
+                    <a href="/#/addcontact">Create contact </a>
+                </li>
+                <li>
+                    <a href="/#/groups">Contact Groups</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+

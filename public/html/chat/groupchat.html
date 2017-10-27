@@ -1,0 +1,92 @@
+<header></header>
+<div class="col-md-12 col-lg-12 col-sm-12">
+    <section class="chat-wrap">
+        <div class="chat-inner clearfix">
+       <aside class="col-md-4 col-sm-4 col-xs-12 col-lg-4 chat-userlist-wrap">
+          <div class="chat-userlist">
+             <div class="add-chatuser row">
+               <span class="w3-text-red w3-text-bold">Groups</span>
+            </div>
+            <!-- .add-chatuser -->
+            <div class="seach-chatuser">
+                <div class="input-group col-md-12">
+                    <input type="text" class="  search-query form-control" placeholder="Search" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-danger" type="button">
+                            <span class=" glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+            <!-- .seach-chatuser -->
+            <div class="userlist">
+                <ul>
+                    <li ng-repeat="privateChatUser in privateGroupList"> 
+
+                        <a href="javascript:;"  ng-click="privategroup(privateChatUser)"> <i class="fa fa-user-o" aria-hidden="true"></i> <span ng-hide=""><span ng-hide="privateChatUser.createdby == userdetails.id">{{privateChatUser.friend_name}}</span>
+                        <span ng-hide="privateChatUser.createdby != userdetails.id">{{privateChatUser.group_name}}</span>
+                        </a> 
+
+                      
+
+                        <span> <i class="fa fa-times" aria-hidden="true"></i> </span>
+                        <!-- <i class="icon-remove" onclick="window.location.href='index.php?route=chat/privatechat/disabled_user&amp;id=10';"></i> -->
+                    </li>
+                  
+                </ul>
+            </div>
+
+        </div>    
+    </aside>
+    <!-- .chat-userlist-wrap -->
+
+    <aside class="col-md-8 col-sm-8 col-xs-12 col-lg-8 chat-block">
+      <div class="chat-box">
+         <div class="chat-header row">
+            <h3 class="col-lg-8 col-md-8 col-sm-8 col-xs-12"> {{groupsName }} <span style="font-size: 15px; padding: 10px;"> The time square new York </span><a class="chatmap-icon" data-toggle="modal" data-target="#locationModal"> <i class="fa fa-map-marker" aria-hidden="true"></i> </a>  </h3>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-right chatheader-right">
+              <span class="chatstetus w3-text-green" ng-show="friendInfo.online==1"> <b>Online</b> </span> 
+              <span class="chatstetus w3-text-red" ng-show="friendInfo.online==0"> <b>Offline</b> </span> 
+            </div>
+        </div>
+        <!-- .add-chatuser -->
+        <div class="usermessage-box">
+            <div  class="{{message.sender_id == userdetails.id ? 'usermessage-outbox' : 'usermessage-inbox'}} clearfix msg-gap"  ng-repeat="message in messagess">
+   
+              <div class="{{message.sender_id == userdetails.id ? 'usermessage-out' : 'usermessage-in'}} ">
+                  <div class="chat-message-box">  {{message.text}}</div>
+                  <div class="delete-message"> <a href="javascript();"> <i class="fa fa-trash" aria-hidden="true"></i> </a> <span> {{message.sendtimestamp | date:'yyyy-MM-dd HH:mm:ss'}}</span>  </div>
+             
+            </div>
+            </div>
+
+         </div>  
+
+        <!-- .usermessage-box -->
+        <div class="chat-message">
+            <div class="input-group col-md-12">
+                <input type="text" class="chat-message-query form-control" placeholder="Message" ng-model="residentchat.message"/>
+                <span class="input-group-btn file-transfer">
+                    <button class="btn btn-danger" type="button">
+                        <span class="fa fa-paperclip"></span>
+                    </button>
+                </span>
+                <span class="input-group-btn file-transfer">
+                    <button class="btn btn-danger" type="button">
+                        <span class="fa fa-microphone"></span>
+                    </button>
+                </span>
+                <span class="input-group-btn">
+                    <button class="btn btn-danger" type="button" ng-click="send()">
+                        <span class="fa fa-paper-plane-o"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <!-- .seach-chatuser -->  
+
+
+</aside>
+</div>
+</section>
+</div>

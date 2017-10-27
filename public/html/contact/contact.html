@@ -1,0 +1,76 @@
+<header>
+</header>
+<h1 class="page-header"></h1>
+<div class="col-lg-12">
+    <!--  <div class="panel panel-default"> <div class="panel-heading"><button class="w3-btn w3-green"> Add User</button></div> -->
+    <!-- /.panel-heading -->
+    <div class="panel-body">
+        <div class="modal-content">
+            <div class="modal-header table-header">
+                <!--   <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                <h4 class="modal-title">Contact list</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div class="alert alert-danger" ng-show="Error == false">
+                            <strong>Danger!</strong> {{ErrorMessage}}
+                        </div>
+                        <div class="alert alert-success" ng-show="Success == false">
+                            <strong>Success!</strong> {{successMessage}}
+                        </div>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-md-12 add-btn">
+                        <a href="/#/addcontact" class="w3-btn w3-green w3-right">Add Contact</a>
+                    </div>
+                </div>
+                <div class="userlisi-wrap">
+                    <table class="table table-bordered table-striped" datatable="ng" dt-options="dtOptions">
+                        <thead>
+                            <tr>
+                                <th class="w3-center">Image</th>
+                                <th class="w3-center">Firstname</th>
+                                <th class="w3-center">Lastname</th>
+                                <th class="w3-center">Email</th>
+                                <th class="w3-center">Mobile</th>
+                            <!--     <th class="w3-center">Status</th> -->
+                                <th class="w3-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="contactList in contactList">
+                                <td class="w3-center"><img height=50px src="{{contactList.image_path}}" /></td>
+                                <td class="w3-center">{{contactList.first_name}}</td>
+                                <td class="w3-center">{{contactList.last_name}}</td>
+                                <td class="w3-center">{{contactList.email}}</td>
+                                <td class="w3-center">{{contactList.mobile}}</td>
+                               <!--  <td class="w3-center">
+               <span class="w3-text-red w3-center w3-text-bold" ng-show="contactList.status==1">Disabled</span><span class="w3-text-green w3-center w3-text-bold" ng-show="contactList.status==0">Enable</span>
+                                </td> -->
+                                <td>
+                                    <a href="/#/editcontact/{{contactList._id}}" class="btn btn-default btn-sm btn-icon icon-left"><i class="entypo-pencil"></i>
+                        Edit
+                    </a>
+                                    <a ng-confirm="Are you sure you want to delete ?" ng-click='deletecontact(contactList._id)' class="btn btn-danger btn-sm btn-icon icon-left"> <i class="entypo-cancel"></i> Delete
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.table-responsive -->
+</div>
+<!-- /.panel-body -->
+</div>
+<!-- /.panel -->
+</div>
+<!-- /.col-lg-6 -->
+</div>
+</div>

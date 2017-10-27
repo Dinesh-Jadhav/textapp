@@ -1,0 +1,80 @@
+<header></header>
+
+
+
+
+<h1 class="page-header"></h1>
+
+
+<div class="col-lg-12"> 
+
+    <!--  <div class="panel panel-default"> <div class="panel-heading"><button class="w3-btn w3-green"> Add User</button></div> --> <!-- /.panel-heading --> 
+
+
+
+
+    <div class="panel-body">
+
+        <div class="modal-content">
+            <div class="modal-header table-header">
+                <!--   <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                <h4 class="modal-title">Groups</h4>
+            </div>
+            <div class="modal-body">
+             <div     class="row">
+                <div class="col-md-12 add-btn">
+                    <a href="/#/addgroup" class="w3-btn w3-green w3-right">Add Group</a>
+                </div>
+            </div> 
+
+            <div class="userlisi-wrap"> 
+
+                <table class="table table-bordered table-striped" datatable="ng" dt-options="dtOptions">
+                    <thead>
+                        <tr>
+                            <th class="w3-center">Image</th>
+                            <th class="w3-center">Group Name</th>
+                            <th class="w3-center">Status</th>
+                            <th class="w3-center">Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr ng-repeat="user in users"> 
+                            <td class="w3-center"><img height=50px src="{{user.group_icon}}"/></td>
+                             <td class="w3-center">{{user.group_name}}</td>
+                           <!-- <td class="w3-center">{{user.last_name}}</td>
+                            <td class="w3-center">{{user.mobile}}</td> -->
+                            <td class="w3-center">
+                             <span class="w3-text-green w3-center w3-text-bold" ng-show="{{user.status==1}}">Enable</span>
+                             <span class="w3-text-red w3-center w3-text-bold" ng-show="{{user.status==0}}">Disable</span>
+                         </td>
+
+                       <!--   <td class="w3-center">2017-10-05</td> -->
+                         <td>
+                            <a  href="/#/editcontactgroup/{{user._id}}" class="btn btn-default btn-sm btn-icon icon-left"><i class="entypo-pencil"></i>
+                                Edit
+                            </a>
+                            <a  ng-confirm="Are you sure you want to delete ?"  ng-click='deleteGroup(user._id)'  class="btn btn-danger btn-sm btn-icon icon-left" > <i class="entypo-cancel"></i>
+                                Delete
+                            </a>
+
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+
+    </div>
+
+</div>
+
+
+
+</div> <!-- /.table-responsive --> </div> <!-- /.panel-body --> </div> <!-- /.panel --> </div> <!-- /.col-lg-6 --> </div></div>
+

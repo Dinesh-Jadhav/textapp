@@ -1,0 +1,152 @@
+<header></header>
+
+
+
+
+<h1 class="page-header"></h1>
+ 
+
+ <div class="col-lg-12"> 
+
+ <div class="panel-body">
+<div class="modal-content">
+        <div class="modal-header w3-teal">
+        <!--   <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+          <h4 class="modal-title">Add New User</h4>
+        </div>
+        <div class="modal-body">
+   <div 	class="row">
+   	<div class="col-md-12">
+
+
+<div class="col-md-3"></div>    
+<div class="col-md-6">
+  <form name="addduser" >
+
+
+
+   <div class="form-group">
+
+    <input type="text"  class="form-control" placeholder="User Name" ng-model="addduser.username"  name="username" required="required">
+  
+  </div>
+<br/>
+ <div class="form-group">
+
+    <input type="text"  class="form-control" placeholder="First Name" name="first_name" ng-model="addduser.first_name" required="required">
+    
+  </div>
+
+<br/>
+   <div class=" form-group">
+
+    <input type="text"   class="form-control" placeholder="Last Name" name="last_name" ng-model="addduser.last_name" required="required">
+    
+  </div>
+
+<br/>
+
+ <div class="form-group">
+
+   
+   <select class="form-control" ng-model="addduser.type" name="type" required="required"> 
+     <option selected="selected" disabled="disabled" >User Type</option>
+     <option >Admin</option>
+     <option >Demonstrator</option>
+   </select>
+    <div class="input-group-btn">
+     
+    </div>
+  </div>
+
+<br/>
+
+   <div class="form-group">
+
+    <input type="password"  class="form-control" placeholder="Password" ng-model="addduser.password" name="password" required="required">
+    <div class="input-group-btn">
+     
+    </div>
+  </div>
+
+<br/>
+
+<div class="form-group">
+
+    <input type="password"  class="form-control" placeholder="Confirm Password" name="cpassword" ng-model="addduser.cpassword" required="required">
+    <div class="input-group-btn">
+     
+    </div>
+  </div>
+
+<br/>
+
+   <div class="form-group">
+
+    <input type="text"   class="form-control" placeholder="Mobile" name="mobile_number" ng-model="addduser.mobile_number" required="required">
+    <div class="input-group-btn">
+    
+    </div>
+  </div>
+<br/>
+
+   <div class=" form-group">
+
+    <input type="email"  class="form-control" placeholder="Email" ng-model="addduser.email" required="required">
+    <div class="input-group-btn">
+  
+    </div>
+
+  </div>
+
+<br/>
+   <div class="form-group">
+
+    <input type="file" class="form-control" placeholder="Image" name="image_path" ng-model="addduser.image_path" required="required"> 
+    <div class="input-group-btn">
+    
+    </div>
+  </div>
+
+<br/>
+
+ <div class=" form-group">
+
+   
+   <select class="form-control" ng-model="addduser.status"  name="status"  required="required"> 
+     <option value=1>Enable</option>
+    <option value=0>Disable</option>
+   </select>
+    <div class="input-group-btn">
+     
+    </div>
+  </div>
+
+<br/>
+
+
+<div class="w3-bar">
+
+    <button   ng-click="createUser(addduser)"  ng-disabled="contactForm.$valid" class="w3-bar-item w3-button w3-green" style="width:49.3%">Submit</button>
+  <button class="w3-bar-item w3-button w3-red" style="width:49.3%">Reset</button>
+</div>
+  </form>
+
+
+</div>    
+<div class="col-md-3"></div>   	
+
+   	</div>
+   </div>     
+  <br/>
+   
+
+
+        </div>
+       
+      </div>
+
+
+
+ </div> <!-- /.table-responsive --> </div> <!-- /.panel-body --> </div> <!-- /.panel --> </div> <!-- /.col-lg-6 --> </div></div>
+

@@ -1,0 +1,70 @@
+<header></header>
+
+<h1 class="page-header"></h1>
+ 
+
+ <div class="col-lg-12"> 
+
+<!--  <div class="panel panel-default"> <div class="panel-heading"><button class="w3-btn w3-green"> Add User</button></div> --> <!-- /.panel-heading --> 
+
+
+
+
+ <div class="panel-body">
+
+<div class="modal-content">
+        <div class="modal-header w3-teal">
+        <!--   <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+          <h4 class="modal-title">Edit Group</h4>
+        </div>
+        <div class="modal-body">
+   <div   class="row">
+    <div class="col-md-12">
+<div class="col-md-3"></div>    
+<div class="col-md-6">
+ <form name="contact">
+    <div class="form-group">
+      <label >Group Name :</label>
+      <input type="text" class="form-control" placeholder="Group Name" ng-model="group.Name" required="required">
+    </div>
+    <div class="form-group">
+      <label >Group members :</label>
+      <input type="text" class="form-control" placeholder="" ng-model="contact.first_name" required="required">
+    </div>
+  <div class="form-group">
+    <label for="email">Image:</label>
+    <input type="file" class="form-control" ng-model="contact.path" required="required">
+  </div>
+  <div class="form-group">
+    <label for="email">Status:</label>
+<select class="form-control" ng-model="contact.status"  required="required">
+  <option>Enable</option>
+  <option>Disable</option>
+</select>
+
+
+</div>
+ <div class="form-group w3-center">
+    <button  ng-disabled="contact.$invalid" class="w3-btn w3-green w3-center" ng-click="addcontact()" style="width: 20%;">Submit</button>
+    </div>
+  </div>
+
+  </form>
+
+
+</div>    
+<div class="col-md-3"></div>    
+
+    </div>
+   </div>     
+  <br/>
+   
+
+
+        </div>
+       
+      </div>
+
+
+
+ </div> 
